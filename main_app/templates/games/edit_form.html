@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+&nbsp;
+&nbsp;
+<form method="POST" action="/games/{{ game.id }}/update/">
+    {% csrf_token %}
+    Name: <input name="name">
+    Publisher: <input name="publisher">
+    Players: <input type="number" name="players">
+    Description: <input name="description">
+    <button class="waves-effect cyan lighten-3 btn">Submit</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ game.name }}</span>
+    <p>Publisher: {{ game.publisher }}</p>
+    <p>Players: {{ game.players }}</p>
+    <p>Description: {{ game.description }}</p>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class="waves-effect cyan lighten-3 btn"><a href="/games/{{game.id}}/edit/">Edit</a></button>
+  <button class="waves-effect cyan lighten-3 btn"><a href="/games/{{game.id}}/delete/">Delete</a></button>
+</div>
+<br />
+<br />
+<form method="post" action="/games/{{game.id}}/add_review/">
+{% csrf_token %}
+Rating /5:
+<input type="number" name="rating">
+Review:
+<input type="text" name="text">
+<input type="submit" class="waves-effect cyan lighten-3 btn">
+</form>
+<br />
+
+{% for r in review %}
+<div class="card">
+  <div class="card-content">
+    <p>Rating: {{r.rating}}/5</p>
+    <p>Review: {{r.text}}</p>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

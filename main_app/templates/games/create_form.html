@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br />
+<br />
+<form method="POST" action="/create/submit/">
+    {% csrf_token %}
+    Name: <input name="name">
+    Publisher: <input name="publisher">
+    Players: <input type="number" name="players">
+    Description: <input name="description">
+    <button class="waves-effect cyan lighten-3 btn">Add</button>
+</form>
+
+
+{% endblock %}
