@@ -8,7 +8,7 @@ from .models import Game, Review
 
 
 def home(request):
-    return render(request, 'about.html')
+    return render(request, 'home.html')
 
 
 def games_index(request):
