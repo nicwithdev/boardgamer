@@ -4,6 +4,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+main {
+  font-family: "Monserrat", sans-serif;
+  min-height: 92vh;
+  width: 100%;
 }
 
 /* NAV */
@@ -20,7 +27,7 @@ nav {
 .right {
   display: flex;
   justify-content: space-between;
-  width: 33%;
+  width: 40%;
   overflow-x: hidden;
   margin-right: 30px;
 }
@@ -46,6 +53,70 @@ nav {
 .menu {
   display: none;
 }
+
+/* HOME PAGE */
+
+.landing {
+  min-height: 92vh;
+  width: 100%;
+  display: flex;
+}
+
+.landing-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.landing-info h1 {
+  font-size: 60px;
+  margin: 60px 30px;
+}
+
+.landing-info p {
+  margin: 0px 30px;
+  font-size: 20px;
+}
+
+.landing-btn {
+  width: 100%;
+  margin: 80px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.landing-btn button {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(240, 142, 104);
+  outline: none;
+  border: none;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.landing-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.landing-photo {
+  width: 50%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-photo img {
+  object-fit: cover;
+  width: 90%;
+  height: 700px;
+  border-radius: 30px;
+}
+
 /* FORMS */
 
 .form-area {

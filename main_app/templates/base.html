@@ -19,6 +19,7 @@
           {% if user.is_authenticated %}
           <a href="/games/user/">View My Games</a>
           <a href="/create/">Add Game</a>
+          <a href="#">My Wishlist</a>
           <a href="{% url 'logout' %}">Log Out</a>
           {% else %}
           <a href="{% url 'login' %}">Log In</a>
