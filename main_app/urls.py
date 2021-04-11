@@ -13,4 +13,5 @@ urlpatterns = [
     path('games/<int:game_id>/add_review/', views.review_form),
     path('accounts/signup/', views.signup, name='signup'),
     path('games/user/', views.my_games),
+    path('games/search/', views.render_search),
 ]

@@ -27,7 +27,7 @@ nav {
 .right {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 50%;
   overflow-x: hidden;
   margin-right: 30px;
 }

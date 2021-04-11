@@ -73,6 +73,10 @@ def review_form(request, game_id):
     return redirect(f'/games/{game_id}/')
 
 
+def render_search(request):
+    return render(request, 'games/search.html')
+
+
 def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
