@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Wishlist</h1>
+
+{% if items|length == 0 %}
+  
+<h3>Hmm...</h3>
+<p>Looks like your Wishlist is currently empty.</p>
+<button class="redirect"><a href="/games/">View All Games</a></button>
+<button class="redirect"><a href="/games/search/">Find A Game</a></button>
+
+{% else %}
+
+{% for item in items %}
+
+<h2>{{ item.name }}</h2>
+<p>{{ item.publisher }}</p>
+<p>{{ item.players }}</p>
+<p>{{ item.description }}</p>
+<button class="delete-btn"><a href="/wishlist/delete/{{ item.id }}/">Remove</a></button>
+{% endfor %}
+
+{% endif %}
+
+{% endblock %}

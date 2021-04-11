@@ -14,4 +14,8 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('games/user/', views.my_games),
     path('games/search/', views.render_search),
+    path('games/search/handle/', views.search),
+    path('wishlist/', views.render_wishlist),
+    path('wishlist/add/', views.add_to_list),
+    path('wishlist/delete/<int:item_id>/', views.delete_from_wishlist),
 ]

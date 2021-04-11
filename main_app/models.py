@@ -19,3 +19,11 @@ class Review(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(5)])
     text = models.CharField(max_length=250)
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
+
+
+class Wishlist(models.Model):
+    name = models.CharField(max_length=100)
+    publisher = models.CharField(max_length=100)
+    players = models.IntegerField()
+    description = models.TextField(max_length=250)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

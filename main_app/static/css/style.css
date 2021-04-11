@@ -13,6 +13,10 @@ main {
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 /* NAV */
 
 nav {
@@ -27,7 +31,7 @@ nav {
 .right {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 43%;
   overflow-x: hidden;
   margin-right: 30px;
 }
@@ -121,6 +125,10 @@ nav {
 
 .form-area {
   resize: none;
+}
+
+.form-btn {
+  cursor: pointer;
 }
 
 .nav-show {

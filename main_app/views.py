@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
-from .models import Game, Review
+from .models import Game, Review, Wishlist
 
 
 def home(request):
@@ -20,6 +20,12 @@ def games_detail(request, game_id):
     game = Game.objects.get(id=game_id)
     review = Review.objects.filter(game_id=game_id)
     return render(request, 'games/detail.html', {'game': game, 'review': review})
+
+
+@login_required
+def my_games(request):
+    games = Game.objects.filter(user=request.user)
+    return render(request, 'games/my-games.html', {'games': games})
 
 
 @login_required
@@ -77,6 +83,39 @@ def render_search(request):
     return render(request, 'games/search.html')
 
 
+def search(request):
+    g_name = request.POST['name']
+    print(g_name)
+    games = Game.objects.filter(name=g_name)
+    print(games)
+    return render(request, 'games/result.html', {'games': games})
+
+
+def render_wishlist(request):
+    try:
+        items = Wishlist.objects.filter(user=request.user)
+        return render(request, 'wishlist.html', {'items': items})
+    except:
+        return render(request, 'wishlist.html')
+
+
+def add_to_list(request):
+    Wishlist.objects.create(
+        name=request.POST['name'],
+        publisher=request.POST['publisher'],
+        players=request.POST['players'],
+        description=request.POST['description'],
+        user=request.user,
+    )
+    return redirect('/wishlist/')
+
+
+def delete_from_wishlist(request, item_id):
+    item = Wishlist.objects.get(id=item_id)
+    item.delete()
+    return redirect('/wishlist/')
+
+
 def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)
@@ -95,9 +134,3 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
-
-
-@login_required
-def my_games(request):
-    games = Game.objects.filter(user=request.user)
-    return render(request, 'games/my-games.html', {'games': games})

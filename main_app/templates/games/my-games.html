@@ -5,15 +5,13 @@
 
 {% for game in games %}
   <div class="card">
-    <a href="{{ game.id }}">
-    <div class="card-content">
-      <span class="card-title">{{ game.name }}</span>
+    <a href="/games/{{ game.id }}/">
+      <h2>{{ game.name }}</h2>
       <p>Publisher: {{ game.publisher }}</p>
       <p>Players: {{ game.players }}</p>
       <p>Description: {{ game.description }}</p>
       <button class="waves-effect cyan lighten-3 btn"><a href="/games/{{game.id}}/edit/">Edit</a></button>
       <button class="waves-effect cyan lighten-3 btn"><a href="/games/{{game.id}}/delete/">Delete</a></button>
-    </div>
     </a>
   </div>
 {% endfor %}

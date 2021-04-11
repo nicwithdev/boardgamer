@@ -4,6 +4,7 @@
 <div class="container">
 
 <form action="/games/search/handle/" method="post">
+    {% csrf_token %}
     <input name="name" class="search-input">
     <button class="btn">Search</button>
 </form>

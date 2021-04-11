@@ -5,14 +5,20 @@
 
 {% for game in games %}
   <div class="card">
-    <a href="{{ game.id }}">
-    <div class="card-content">
+    <a href="/games/{{ game.id }}/">
       <span class="card-title">{{ game.name }}</span>
       <p>Publisher: {{ game.publisher }}</p>
       <p>Players: {{ game.players }}</p>
       <p>Description: {{ game.description }}</p>
-    </div>
     </a>
+    <form action="/wishlist/add/" method="post">
+      {% csrf_token %}
+      <input name="name" value="{{ game.name }}" class="hidden">
+      <input name="publisher" value="{{ game.publisher }}" class="hidden">
+      <input type="number" name="players" value="{{ game.players }}" class="hidden">
+      <textarea name="description" class="hidden">{{ game.description }}</textarea>
+      <button class="form-btn">Add to Wishlist</button>
+  </form>
   </div>
 {% endfor %}
 
