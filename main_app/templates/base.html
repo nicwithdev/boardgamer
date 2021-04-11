@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,32 +7,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Board Gamer</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <header class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper deep-orange darken-2">
-        <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Board Gamer</a></li>
-        </ul>
-        <ul class="right">
-          <li><a href="/games/">View All Board Games</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="/games/user/">View My Games</a></li>
-          <li><a href="/create/">Add Game</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-          <li><a href="{% url 'login' %}">Log In</a></li>
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          {% endif %}
-        </ul>
+      <div>
+          <a href="/" class="logo">Board Gamer</a>
       </div>
+        <div class="right">
+          <a href="/games/">View All Board Games</a>
+          {% if user.is_authenticated %}
+          <a href="/games/user/">View My Games</a>
+          <a href="/create/">Add Game</a>
+          <a href="{% url 'logout' %}">Log Out</a>
+          {% else %}
+          <a href="{% url 'login' %}">Log In</a>
+          <a href="{% url 'signup' %}">Sign Up</a>
+          {% endif %}
+        </div>
+        <div class="menu">
+          <p>Menu</p>
+        </div>
     </nav>
-  </header>
-  <main class="container">
+  <main>
     {% block content %}
     {% endblock %}
   </main>
+  <script>
+    const menu = document.querySelector('.menu');
+    const nav = document.querySelector('.right');
+
+    burger.addEventListener('click', function() {
+    nav.classList.toggle('nav-show');
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300&family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* NAV */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  overflow-x: hidden;
+  background-color: rgb(11, 107, 145);
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+  width: 33%;
+  overflow-x: hidden;
+  margin-right: 30px;
+}
+
+.right a {
+  text-decoration: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  font-family: "Pacifico", sans-serif;
+  text-decoration: none;
+  color: white;
+  margin-left: 30px;
+  font-family: "Kalam", serif;
+  font-weight: 700;
+}
+
+.menu {
+  display: none;
+}
+/* FORMS */
+
+.form-area {
+  resize: none;
+}
+
+.nav-show {
+  transform: translateX(0%);
+  display: inherit;
+}

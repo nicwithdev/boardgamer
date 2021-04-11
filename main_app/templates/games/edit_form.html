@@ -5,10 +5,10 @@
 &nbsp;
 <form method="POST" action="/games/{{ game.id }}/update/">
     {% csrf_token %}
-    Name: <input name="name">
-    Publisher: <input name="publisher">
-    Players: <input type="number" name="players">
-    Description: <input name="description">
+    Name: <input name="name" value="{{ game.name }}">
+    Publisher: <input name="publisher" value="{{ game.publisher }}">
+    Players: <input type="number" name="players" value="{{ game.players }}">
+    Description: <textarea name="description" class="form-area" rows="15" cols="33" maxlength="500">{{ game.description }}</textarea>
     <button class="waves-effect cyan lighten-3 btn">Submit</button>
 </form>
 
