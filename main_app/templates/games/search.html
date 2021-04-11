@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
+<div class="search-contain">
 
 <form action="/games/search/handle/" method="post">
     {% csrf_token %}
     <input name="name" class="search-input">
-    <button class="btn">Search</button>
+    <button class="form-btn">Search</button>
 </form>
 
 </div>

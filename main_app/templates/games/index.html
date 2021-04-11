@@ -1,8 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Games List</h1>
+<div class="container">
 
+  <div class="title">
+  <h1>All Board Games</h1>
+  </div> 
+
+  <div class="list">
 {% for game in games %}
   <div class="card">
     <a href="/games/{{ game.id }}/">
@@ -21,5 +26,9 @@
   </form>
   </div>
 {% endfor %}
+
+</div>
+
+</div>
 
 {% endblock %}

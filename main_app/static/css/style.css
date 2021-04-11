@@ -17,6 +17,11 @@ main {
   display: none;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 /* NAV */
 
 nav {
@@ -129,7 +134,45 @@ nav {
 
 .form-btn {
   cursor: pointer;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(240, 142, 104);
+  outline: none;
+  border: none;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 5px;
 }
+
+.edit-btn {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: rgb(41, 198, 226);
+}
+
+.delete-btn {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: rgb(233, 40, 82);
+}
+
+.edit-btn a,
+.delete-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+/* OTHER */
 
 .nav-show {
   transform: translateX(0%);

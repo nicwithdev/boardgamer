@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<br />
-<br />
+
+<div class="container">
+
+    <div class="title">
+    <h1>Add a Game</h1>
+    </div> 
+<div class="forms">
 <form method="POST" action="/create/submit/">
     {% csrf_token %}
     Name: <input name="name">
     Publisher: <input name="publisher">
     Players: <input type="number" name="players">
     Description: <textarea name="description" class="form-area" rows="15" cols="33" maxlength="500"></textarea>
-    <button class="waves-effect cyan lighten-3 btn">Add</button>
+    <button class="form-btn">Add</button>
 </form>
-
+</div>
+</div>
 
 {% endblock %}
