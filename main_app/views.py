@@ -7,6 +7,8 @@ from django.views.generic import ListView, DetailView
 from .models import Game, Review, Wishlist
 
 
+# RENDER PAGES
+
 def home(request):
     return render(request, 'home.html')
 
@@ -34,6 +36,34 @@ def create(request):
 
 
 @login_required
+def edit(request, game_id):
+    game = Game.objects.get(id=game_id)
+    return render(request, 'games/edit_form.html', {'game': game})
+
+
+@login_required
+def render_wishlist(request):
+    try:
+        items = Wishlist.objects.filter(user=request.user)
+        return render(request, 'wishlist.html', {'items': items})
+    except:
+        return render(request, 'wishlist.html')
+
+
+def search(request):
+    g_name = request.POST['name']
+    games = Game.objects.filter(name=g_name)
+    return render(request, 'games/result.html', {'games': games})
+
+
+def render_search(request):
+    return render(request, 'games/search.html')
+
+
+# CREATE
+
+
+@login_required
 def submit_create(request):
     Game.objects.create(
         name=request.POST['name'],
@@ -42,30 +72,6 @@ def submit_create(request):
         description=request.POST['description'],
         user=request.user,
     )
-    return redirect('/games/')
-
-
-@login_required
-def edit(request, game_id):
-    game = Game.objects.get(id=game_id)
-    return render(request, 'games/edit_form.html', {'game': game})
-
-
-@login_required
-def update(request, game_id):
-    game = Game.objects.get(id=game_id)
-    game.name = request.POST['name']
-    game.publisher = request.POST['publisher']
-    game.players = request.POST['players']
-    game.description = request.POST['description']
-    game.save()
-    return redirect('/games/')
-
-
-@login_required
-def delete(request, game_id):
-    game = Game.objects.get(id=game_id)
-    game.delete()
     return redirect('/games/')
 
 
@@ -79,26 +85,7 @@ def review_form(request, game_id):
     return redirect(f'/games/{game_id}/')
 
 
-def render_search(request):
-    return render(request, 'games/search.html')
-
-
-def search(request):
-    g_name = request.POST['name']
-    print(g_name)
-    games = Game.objects.filter(name=g_name)
-    print(games)
-    return render(request, 'games/result.html', {'games': games})
-
-
-def render_wishlist(request):
-    try:
-        items = Wishlist.objects.filter(user=request.user)
-        return render(request, 'wishlist.html', {'items': items})
-    except:
-        return render(request, 'wishlist.html')
-
-
+@login_required
 def add_to_list(request):
     Wishlist.objects.create(
         name=request.POST['name'],
@@ -109,12 +96,36 @@ def add_to_list(request):
     )
     return redirect('/wishlist/')
 
+# UPDATE
+
+
+@login_required
+def update(request, game_id):
+    game = Game.objects.get(id=game_id)
+    game.name = request.POST['name']
+    game.publisher = request.POST['publisher']
+    game.players = request.POST['players']
+    game.description = request.POST['description']
+    game.save()
+    return redirect('/games/')
+
+
+# DELETE
+
+@login_required
+def delete(request, game_id):
+    game = Game.objects.get(id=game_id)
+    game.delete()
+    return redirect('/games/')
+
 
 def delete_from_wishlist(request, item_id):
     item = Wishlist.objects.get(id=item_id)
     item.delete()
     return redirect('/wishlist/')
 
+
+# LOGIN
 
 def form_valid(self, form):
     form.instance.user = self.request.user
