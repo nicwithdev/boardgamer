@@ -14,7 +14,7 @@
       <h2>{{ game.name }}</h2>
       <p>Publisher: {{ game.publisher }}</p>
       <p>Players: {{ game.players }}</p>
-      <p>Description: {{ game.description }}</p>
+      <p>{{ game.description }}</p>
       <button class="edit-btn"><a href="/games/{{game.id}}/edit/">Edit</a></button>
       <button class="delete-btn"><a href="/games/{{game.id}}/delete/">Delete</a></button>
     </a>

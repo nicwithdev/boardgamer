@@ -8,7 +8,8 @@
 <h3>Hmm...</h3>
 <p>We couldn't find that board game.</p>
 <p>Maybe you can add it for us?</p>
-<button class="redirect"><a href="/create/">Add A Game</a></button>
+<button class="form-btn"><a href="/create/">Add A Game</a></button>
+<button class="form-btn"><a href="/games/search/">Back to Search</a></button>
 </div>  
 {% else %}
 
@@ -17,8 +18,8 @@
 <div class="card">
 <a href="/games/{{ game.id }}/">
 <h2>{{ game.name }}</h2>
-<p>{{ game.publisher }}</p>
-<p>{{ game.players }}</p>
+<p>Publisher: {{ game.publisher }}</p>
+<p>Players: {{ game.players }}</p>
 <p>{{ game.description }}</p>
 </a>
 <form action="/wishlist/add/" method="post">

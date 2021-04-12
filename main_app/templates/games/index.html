@@ -11,10 +11,10 @@
 {% for game in games %}
   <div class="card">
     <a href="/games/{{ game.id }}/">
-      <span class="card-title">{{ game.name }}</span>
+      <h2>{{ game.name }}</h2>
       <p>Publisher: {{ game.publisher }}</p>
       <p>Players: {{ game.players }}</p>
-      <p>Description: {{ game.description }}</p>
+      <p>{{ game.description }}</p>
     </a>
     <form action="/wishlist/add/" method="post">
       {% csrf_token %}
