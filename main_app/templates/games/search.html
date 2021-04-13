@@ -3,12 +3,13 @@
 
 <div class="search-contain">
 
+<div class="search-box">
 <form action="/games/search/handle/" method="post">
     {% csrf_token %}
     <input name="name" class="search-input">
     <button class="form-btn">Search</button>
 </form>
-
+</div>    
 </div>
 
 {% endblock %}

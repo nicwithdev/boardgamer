@@ -3,6 +3,8 @@
 
 <div class="container">
 
+ <div class="detail-contain"> 
+
 <div class="card">
     <h2>{{ game.name }}</h2>
     <p>Publisher: {{ game.publisher }}</p>
@@ -10,22 +12,26 @@
     <p>{{ game.description }}</p>
 </div>
 
+</div>  
+
 <div class="forms">
 <form method="post" action="/games/{{game.id}}/add_review/">
 {% csrf_token %}
 Rating /5:
-<input type="number" name="rating">
+<input type="number" name="rating" min="0" max="5" class="num">
 Review:
-<input type="text" name="text">
+<textarea name="text" class="form-area" rows="15" cols="33" maxlength="200"></textarea>
+<div class="btn-div">
 <button class="form-btn">Post</button>
+</div>
 </form>
 </div>
 
 <div class="reviews">
 {% for r in review %}
 <div class="review-card">
-    <p>Rating: {{r.rating}}/5</p>
-    <p>Review: {{r.text}}</p>
+    <p><span>Rating:</span><br /> {{r.rating}}/5</p>
+    <p><span>Review:</span><br /> {{r.text}}</p>
 </div>
 {% endfor %}
 </div>
