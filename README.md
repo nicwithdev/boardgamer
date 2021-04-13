@@ -23,7 +23,7 @@
 </ul>
 <h2>Getting Started</h2>
 <p>To view my project, please click the link below</p>
-<a href="#">I am working on deploying this, don't click yet please!</a>
+<a href="https://boardgamer-the-app.herokuapp.com/">Click Here</a>
 <h2>Next Steps</h2>
 <ul>
 <li>Allow for users to organize board game nights with their friends on Board Gamer</li>
