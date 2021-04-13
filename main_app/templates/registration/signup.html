@@ -7,13 +7,17 @@
 <h1>Sign Up</h1>
 </div>
 
+<div class="forms">
 {% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
 <div class="login-form">
 <form method="post" action="{% url 'signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" class="btn" value="signup">
+  <div class="btn-div">
+  <button type="submit" class="form-btn">Sign Up</button>
+</div>
 </form>
+</div>
 </div>
 </div>
 {% endblock %}
